@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-white fixed-top py-4 shadow-sm">
     <div class="container">
-      <a class="navbar-brand" href="index.html">Indo<span>Toko</span></a>
+      <a class="navbar-brand" href="/">Indo<span>Toko</span></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -28,18 +28,30 @@
                 Menu
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="index.html">Home</a></li>
-                <li><a class="dropdown-item" href="products.html">Best Seller</a></li>
-                <li><a class="dropdown-item" href="products.html">New Arrival</a></li>
-                <li><a class="dropdown-item" href="products.html">Blog</a></li>
+                <li><a class="dropdown-item" href="/">Home</a></li>
+                <li><a class="dropdown-item" href="/products">Best Seller</a></li>
+                <li><a class="dropdown-item" href="/products">New Arrival</a></li>
+                <li><a class="dropdown-item" href="/products">Blog</a></li>
               </ul>
             </div>
-            <li class="nav-item mt-5 mt-lg-0 text-center">
-              <a class="nav-link btn-second me-lg-3" href="#">Login</a>
-            </li>
-            <li class="nav-item mt-3 mt-lg-0 text-center">
-              <a class="nav-link btn-first" href="#">Register</a>
-            </li>
+            @if (Route::has('login'))
+                    @auth
+                      <li class="nav-item mt-3 mt-lg-0 text-center">
+                        <a class="nav-link btn-first" href="/register">Home</a>
+                      </li>                    
+                    @else
+                    <li class="nav-item mt-5 mt-lg-0 text-center">
+                      <a class="nav-link btn-second me-lg-3" href="/login">Login</a>
+                    </li>
+                        @if (Route::has('register'))
+                          <li class="nav-item mt-3 mt-lg-0 text-center">
+                            <a class="nav-link btn-first" href="/register">Register</a>
+                          </li>
+                        @endif
+                    @endauth
+                </div>
+            @endif
+            
           </ul>
         </div>
       </div>

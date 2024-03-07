@@ -1,8 +1,8 @@
-<?php 
+<?php
 
 namespace Modules\Shop\Repositories\Front\Interfaces;
 
 interface ProductRepositoryInterface
 {
-    public function findAll($option = []);
+    public function findAll($options = []);
 }
